@@ -1,7 +1,10 @@
-.card-image {
-    width: 200px;
+.pub-image {
+  width: 30px;
 }
 
-.pub-image {
-    width: 30px;
+.masonry-with-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1000px;
 }

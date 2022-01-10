@@ -9,7 +9,7 @@ import PubText from "../Publisher/PubText";
 
 function PostItem({ post }) {
   return (
-    <div key={post.id} className="d-flex flex-column col-md-4">
+    <div key={post.id} className="col-md-4">
       <div className="d-flex flex-row">
         <PubImage owner={post.owner} />
         <PubText owner={post.owner} />
