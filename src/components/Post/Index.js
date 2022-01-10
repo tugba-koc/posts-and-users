@@ -1,12 +1,9 @@
 import React from "react";
 import { useResult } from "../../context/ResultContext";
-import Image from "./Card/Image";
-import Tag from "./Card/Tag";
-import Text from "./Card/Text";
-import Likes from "./Card/Likes";
-import PubImage from "./Publisher/PubImage";
-import PubText from "./Publisher/PubText";
+
+
 import "./style.css";
+import PostItem from "./PostItem/PostItem";
 
 function Index() {
   const { posts, isLoading } = useResult();
@@ -21,19 +18,9 @@ function Index() {
   }
 
   return (
-    <div>
+    <div className="d-flex flex-wrap w-75 mx-auto row">
       {posts.map((post) => (
-        <div key={post.id} className="d-flex flex-column">
-          <div className="d-flex flex-row">
-            <PubImage owner={post.owner} />
-            <PubText owner={post.owner} />
-          </div>
-
-          <Image post={post} />
-          <Tag tags={post.tags} />
-          <Text text={post.text} />
-          <Likes likes={post.likes} />
-        </div>
+        <PostItem post={post} />
       ))}
     </div>
   );
