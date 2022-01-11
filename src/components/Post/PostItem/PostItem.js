@@ -9,14 +9,19 @@ import PubText from "../Publisher/PubText";
 
 function PostItem({ post }) {
   return (
-    <div key={post.id} className="col-md-4">
-      <div className="d-flex flex-row">
+    <div key={post.id} className="col-md-6 col-lg-4 bg-light p-3 box ">
+      <div className="d-flex flex-row mb-1 ms-1 me-1">
         <PubImage owner={post.owner} />
-        <PubText owner={post.owner} />
+        <div className="ms-2">
+          <PubText owner={post.owner} />
+        </div>
       </div>
 
       <Image post={post} />
-      <Tag tags={post.tags} />
+      <div className="mt-2">
+        <Tag tags={post.tags} />
+      </div>
+
       <Text text={post.text} />
       <div className="d-flex flex-row justify-content-between">
         <Likes likes={post.likes} />

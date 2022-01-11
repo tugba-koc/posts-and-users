@@ -18,11 +18,12 @@ export const ResultProvider = ({ children }) => {
       setIsLoading(true);
     };
     fetchPost();
+    
   }, []);
 
   const values = {
     posts,
-    isLoading
+    isLoading,
   };
 
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from '../../components/Post/Index';
+import PostMain from '../../components/Post/PostMain';
 
 function Index() {
     return (
         <div>
-            <Card />
+            <PostMain />
         </div>
     )
 }

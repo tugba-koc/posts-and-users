@@ -1,12 +1,14 @@
-import React from 'react'
+import React from "react";
 
 function PubText({ owner }) {
-    return (
-        <div className="d-flex flex-column">
-            <p className="fs-6  m-0">{owner.firstName} {owner.lastName}</p>
-            <p className="fs-6  m-0">{owner.id}</p>
-        </div>
-    )
+  return (
+    <div className="d-flex flex-column">
+      <p className="fw-bold  m-0 pub-text">
+        {owner.firstName} {owner.lastName}
+      </p>
+      <p className="fw-normal m-0 fs-small">{owner.id}</p>
+    </div>
+  );
 }
 
-export default PubText
+export default PubText;

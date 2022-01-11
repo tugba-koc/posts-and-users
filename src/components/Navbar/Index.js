@@ -8,7 +8,7 @@ function Index() {
     <div>
       <BrowserRouter>
         <div className="bg-light">
-          <nav className="d-flex flex-row justify-content-between w-75 mx-auto py-3">
+          <nav className="d-flex flex-row justify-content-between w-75 mx-auto pt-3">
             <p>
               <Link className="text-dark fw-bolder" to="/">
                 DUMMYAPI.IO

@@ -4,7 +4,7 @@ function Tag({tags}) {
     return (
         <div className="d-flex flex-row">
             {tags.map((el)=>(
-                <p className="">{el}</p>
+                <p className="px-3 py-1 bg-danger me-3 rounded-pill text-light fw-normal fs-small">{el}</p>
             ))}
         </div>
     )

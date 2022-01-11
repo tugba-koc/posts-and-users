@@ -1,10 +1,14 @@
 .pub-image {
-  width: 30px;
+  width: auto;
+  height: 40px;
 }
 
-.masonry-with-flex {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 1000px;
+.fs-small {
+  font-size: 14px;
+}
+
+.box{
+  box-sizing: border-box;
+  border: 8px solid transparent;
+  background-clip:padding-box;
 }
