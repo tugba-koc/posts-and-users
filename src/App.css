@@ -42,5 +42,14 @@ nav p a {
 }
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 0.4937325271905637) 0%,
+    rgba(253, 187, 45, 0.2836484935771183) 100%
+  );
 }

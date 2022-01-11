@@ -4,7 +4,7 @@ import { ResultProvider } from "./context/ResultContext";
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <ResultProvider>
         <Navbar />
       </ResultProvider>
