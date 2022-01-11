@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Homepage from "../../pages/Homepage/Index";
+import Posts from "../../pages/Posts/Index";
 import Users from "../../pages/Users/Index";
 
 function Index() {
@@ -22,7 +22,7 @@ function Index() {
           </nav>
         </div>
         <Routes>
-          <Route exact path="/" element={<Homepage />}></Route>
+          <Route exact path="/" element={<Posts />}></Route>
           <Route path="users" element={<Users />}></Route>
         </Routes>
       </BrowserRouter>
@@ -30,4 +30,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default React.memo(Index);
