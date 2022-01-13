@@ -2,7 +2,6 @@ import React from 'react'
 
 function PublishedDate({publishDate}) {
   let date = new Date(publishDate);
-  console.log(date);
   
     return (
         <>

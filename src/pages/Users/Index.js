@@ -1,10 +1,12 @@
-import React from 'react'
+import React from "react";
+import UserMain from "../../components/User/UserMain";
 
 function Index() {
-    return (
-        <div>
-        </div>
-    )
+  return (
+    <>
+      <UserMain />
+    </>
+  );
 }
 
-export default Index
+export default Index;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useResult } from "../../context/ResultContext";
+import UserItem from "./UserItem/UserItem";
 
 function UserMain() {
   const { users, isLoading } = useResult();

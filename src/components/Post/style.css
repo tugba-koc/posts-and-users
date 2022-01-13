@@ -7,6 +7,10 @@
   font-size: 14px;
 }
 
+.fs-smaller {
+  font-size: 12px;
+}
+
 .box{
   box-sizing: border-box;
   border: 8px solid transparent;
