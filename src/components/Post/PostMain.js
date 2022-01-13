@@ -1,6 +1,5 @@
 import React from "react";
 import { useResult } from "../../context/ResultContext";
-import "./style.css";
 import PostItem from "./PostItem/PostItem";
 import Masonry from "react-masonry-css";
 
