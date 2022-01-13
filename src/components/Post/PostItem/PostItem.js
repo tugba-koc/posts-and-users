@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 function PostItem({ post }) {
   return (
     <div className="bg-light p-2">
-      <Link className="d-flex flex-row mb-1" to="/">
+      <Link className="d-flex flex-row mb-1" to={`/user/${post.owner.id}`}>
         <PubImage owner={post.owner} />
         <div className="ms-2">
           <PubText owner={post.owner} />

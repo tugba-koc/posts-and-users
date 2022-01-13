@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Posts from "../../pages/Posts/Index";
 import Users from "../../pages/Users/Index";
+import UserDetail from "../../pages/UserDetail/Index";
 
 function Index() {
   return (
@@ -24,6 +25,7 @@ function Index() {
         <Routes>
           <Route exact path="/" element={<Posts />}></Route>
           <Route path="users" element={<Users />}></Route>
+          <Route path="/user/:user_id" element={<UserDetail />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

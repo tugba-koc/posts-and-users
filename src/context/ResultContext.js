@@ -10,6 +10,7 @@ export const ResultProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(false);
     const fetchPost = async () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_BASE_POINT}/post?limit=10`,
@@ -23,6 +24,7 @@ export const ResultProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    setIsLoading(false);
     const fetchUser = async () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API_BASE_POINT}/user?limit=10`,
@@ -33,6 +35,7 @@ export const ResultProvider = ({ children }) => {
     };
     fetchUser();
   }, []);
+
 
   const values = {
     posts,
