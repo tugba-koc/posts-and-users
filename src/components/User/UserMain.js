@@ -1,9 +1,13 @@
 import React from "react";
 import { useResult } from "../../context/ResultContext";
 import UserItem from "./UserItem/UserItem";
+import Spinner from "../../components/Spinner";
 
 function UserMain() {
-  const { users } = useResult();
+  const { users, isLoading } = useResult();
+  if (!isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className="d-flex row mt-3 mx-auto w-75">
       {users.map((user) => (

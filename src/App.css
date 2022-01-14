@@ -73,3 +73,8 @@ nav p a {
   border: 8px solid transparent;
   background-clip: padding-box;
 }
+
+.bg-none {
+  background: #fff;
+  width: 100px; 
+}

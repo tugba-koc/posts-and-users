@@ -2,17 +2,12 @@ import React from "react";
 import { useResult } from "../../context/ResultContext";
 import PostItem from "./PostItem/PostItem";
 import Masonry from "react-masonry-css";
+import Spinner from "../Spinner";
 
 function PostMain() {
   const { posts, isLoading } = useResult();
   if (!isLoading) {
-    return (
-      <div className="text-center">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    return <Spinner />;
   }
 
   const breakpoints = {
