@@ -7,40 +7,50 @@ const ResultContext = createContext();
 export const ResultProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
+  const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setHasError(false);
     setIsLoading(false);
-    const fetchPost = async () => {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_BASE_POINT}/post?limit=10`,
-        { headers: { "app-id": "61db222fb4e3dc5a1d5e85c0" } }
-      );
-      setPosts(res.data.data);
-      setIsLoading(true);
-    };
-    fetchPost();
-    
+    try {
+      const fetchPost = async () => {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_BASE_POINT}/post?limit=10`,
+          { headers: { "app-id": "61db222fb4e3dc5a1d5e85c0" } }
+        );
+        setPosts(res.data.data);
+        setIsLoading(true);
+      };
+      fetchPost();
+    } catch (error) {
+      setHasError(true);
+    }
   }, []);
 
   useEffect(() => {
+    setHasError(false);
     setIsLoading(false);
-    const fetchUser = async () => {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_BASE_POINT}/user?limit=10`,
-        { headers: { "app-id": "61db222fb4e3dc5a1d5e85c0" } }
-      );
-      setUsers(res.data.data);
-      setIsLoading(true);
-    };
-    fetchUser();
+    try {
+      const fetchUser = async () => {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_BASE_POINT}/user?limit=10`,
+          { headers: { "app-id": "61db222fb4e3dc5a1d5e85c0" } }
+        );
+        setUsers(res.data.data);
+        setIsLoading(true);
+      };
+      fetchUser();
+    } catch (error) {
+      setHasError(true);
+    }
   }, []);
-
 
   const values = {
     posts,
     users,
     isLoading,
+    hasError,
   };
 
   return (

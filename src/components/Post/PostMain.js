@@ -3,18 +3,23 @@ import { useResult } from "../../context/ResultContext";
 import PostItem from "./PostItem/PostItem";
 import Masonry from "react-masonry-css";
 import Spinner from "../Spinner";
+import Error from "../Error";
 
 function PostMain() {
-  const { posts, isLoading } = useResult();
-  if (!isLoading) {
-    return <Spinner />;
-  }
+  const { posts, isLoading, hasError } = useResult();
 
   const breakpoints = {
     default: 3,
     1400: 2,
     800: 1,
   };
+
+  if (!isLoading) {
+    return <Spinner />;
+  }
+  if(hasError){
+    return <Error />
+  }
 
   return (
     <div className="d-flex mt-3 mx-auto w-75">
