@@ -9,6 +9,8 @@ import UpdatedDate from "./Card/UpdatedDate";
 import Birthday from "./Card/Birthday";
 import Phone from "./Card/Phone";
 import Maps from "./Card/Maps";
+import Spinner from "../../components/Spinner";
+import {useResult} from "../../context/ResultContext";
 
 function UserDetailMain({ user_id }) {
   const [userDetail, setUserDetail] = useState({});
@@ -24,6 +26,10 @@ function UserDetailMain({ user_id }) {
     fetchUserDetail();
   }, [user_id]);
 
+  const { isLoading } = useResult();
+  if (!isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className="d-flex row mt-3 mx-auto w-75">
       <div className="col-lg-4 col-6">

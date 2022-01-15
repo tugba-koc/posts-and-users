@@ -4,7 +4,7 @@ import { ResultProvider } from "./context/ResultContext";
 
 function App() {
   return (
-    <div className="main  min-vh-100">
+    <div className="main min-vh-100">
       <ResultProvider>
         <Navbar />
       </ResultProvider>
