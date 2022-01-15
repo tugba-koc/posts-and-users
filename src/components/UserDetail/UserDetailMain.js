@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import UserImage from "../User/Card/UserImage";
+import Id from "./Card/Id";
+import FullName from "./Card/FullName";
+import Gender from "./Card/Gender";
+import RegisterDate from "./Card/RegisterDate";
+import UpdatedDate from "./Card/UpdatedDate";
+import Birthday from "./Card/Birthday";
+import Phone from "./Card/Phone";
+import Maps from "./Card/Maps";
 
 function UserDetailMain({ user_id }) {
   const [userDetail, setUserDetail] = useState({});
@@ -17,11 +25,25 @@ function UserDetailMain({ user_id }) {
   }, [user_id]);
 
   return (
-    <div className="d-flex row mt-3 mx-auto w-75">
-        <div className="col-3"><UserImage picture={userDetail.picture} /></div>
-      <div>
-        
+    <div className="d-flex row mt-3 mx-auto w-75 vh-100">
+      <div className="col-lg-4 col-6">
+        <UserImage picture={userDetail.picture} />
       </div>
+      <div className="col-lg-3 col-6">
+        <Id id={userDetail.id} />
+        <FullName userDetail={userDetail} />
+        <Gender gender={userDetail.gender} />
+        <RegisterDate registerDate={userDetail.registerDate} />
+        <UpdatedDate updatedDate={userDetail.updatedDate} />
+        <Birthday dateOfBirth={userDetail.dateOfBirth} />
+        <Phone phone={userDetail.phone} />
+      </div>
+
+      {userDetail.location && (
+        <div className="col-lg-5 col-12">
+          <Maps location={userDetail.location} />
+        </div>
+      )}
     </div>
   );
 }
