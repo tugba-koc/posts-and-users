@@ -1,6 +1,6 @@
 ### for [Live Demo](https://posts-users.netlify.app/)
 
-This website aims to show cards for posts and users. All the data is fetched from the Dummy API. The data is stored in the state of the component. It is a simple website that uses React and React Router Dom.
+This website aims to show cards for posts and users. All the data is fetched from the Dummy API. The data is stored in the state of the component. It is a simple website that uses React, React Router Dom and Bootstrap 5.
 
 It consists of three main pages: Posts, Users and UserDetail pages.
 
