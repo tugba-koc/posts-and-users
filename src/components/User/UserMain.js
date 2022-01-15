@@ -9,7 +9,7 @@ function UserMain() {
     return <Spinner />;
   }
   return (
-    <div className="d-flex row mt-3 mx-auto w-75 vh-100">
+    <div className="d-flex row mt-3 mx-auto w-75 min-vh-100">
       {users.map((user) => (
         <UserItem user={user} />
       ))}
