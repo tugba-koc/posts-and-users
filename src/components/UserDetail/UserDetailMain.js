@@ -25,7 +25,7 @@ function UserDetailMain({ user_id }) {
   }, [user_id]);
 
   return (
-    <div className="d-flex row mt-3 mx-auto w-75 vh-100">
+    <div className="d-flex row mt-3 mx-auto w-75">
       <div className="col-lg-4 col-6">
         <UserImage picture={userDetail.picture} />
       </div>

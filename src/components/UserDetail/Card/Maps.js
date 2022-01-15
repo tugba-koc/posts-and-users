@@ -8,7 +8,7 @@ function Maps({ location }) {
         height="50%"
         width="100%"
         src={`https://www.google.com/maps?q=${
-          location.country + "," + location.state + "," + location.city
+          location.country + "," + location.state + "," + location.city 
         }&output=embed`}
         loading="lazy"
       ></iframe>
