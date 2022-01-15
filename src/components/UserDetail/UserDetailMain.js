@@ -40,7 +40,7 @@ function UserDetailMain({ user_id }) {
       </div>
 
       {userDetail.location && (
-        <div className="col-lg-5 col-12">
+        <div className="col-lg-5 col-12 mt-5 mt-lg-0">
           <Maps location={userDetail.location} />
         </div>
       )}
