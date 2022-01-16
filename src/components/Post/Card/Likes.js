@@ -1,6 +1,6 @@
 import React from "react";
 import heart from "../../../img/heart.png";
-
+ 
 function Likes({ likes }) {
   return (
     <>

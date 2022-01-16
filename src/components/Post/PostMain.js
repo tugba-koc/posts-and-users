@@ -1,12 +1,25 @@
-import React from "react";
-import { useResult } from "../../context/ResultContext";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import PostItem from "./PostItem/PostItem";
 import Masonry from "react-masonry-css";
 import Spinner from "../Spinner";
 import Error from "../Error";
+import { selectPosts, selectStatus } from "../../redux/posts/postsSlice";
+import { fetchPost } from "../../redux/posts/postsSlice";
+import { useDispatch } from "react-redux";
 
 function PostMain() {
-  const { posts, isLoading, hasError } = useResult();
+  // const { posts, isLoading, hasError } = useResult();
+  const posts = useSelector(selectPosts);
+  const status = useSelector(selectStatus);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(status === "idle") {
+    dispatch(fetchPost());
+    }
+  }, [dispatch,status]);
 
   const breakpoints = {
     default: 3,
@@ -14,11 +27,11 @@ function PostMain() {
     800: 1,
   };
 
-  if (!isLoading) {
+  if (status === "loading") {
     return <Spinner />;
   }
-  if(hasError){
-    return <Error />
+  if (status === "failed") {
+    return <Error />;
   }
 
   return (

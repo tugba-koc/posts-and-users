@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import UserImage from "../User/Card/UserImage";
 import Id from "./Card/Id";
 import FullName from "./Card/FullName";
@@ -9,27 +8,34 @@ import UpdatedDate from "./Card/UpdatedDate";
 import Birthday from "./Card/Birthday";
 import Phone from "./Card/Phone";
 import Maps from "./Card/Maps";
+import {
+  selectUserDetail,
+  selectStatus,
+} from "../../redux/userDetail/userDetailSlice";
+import { fetchUserDetail } from "../../redux/userDetail/userDetailSlice";
+import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../../components/Spinner";
-import {useResult} from "../../context/ResultContext";
+import Error from "../Error";
 
 function UserDetailMain({ user_id }) {
-  const [userDetail, setUserDetail] = useState({});
+  const dispatch = useDispatch();
+
+  const userDetail = useSelector(selectUserDetail);
+  const status = useSelector(selectStatus);
 
   useEffect(() => {
-    const fetchUserDetail = async () => {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_BASE_POINT}/user/${user_id}`,
-        { headers: { "app-id": "61db222fb4e3dc5a1d5e85c0" } }
-      );
-      setUserDetail(res.data);
-    };
-    fetchUserDetail();
-  }, [user_id]);
+    if(status === "idle") {
+    dispatch(fetchUserDetail(user_id));
+    }
+  }, [user_id, dispatch, status]);
 
-  const { isLoading } = useResult();
-  if (!isLoading) {
+  if (status === "loading") {
     return <Spinner />;
   }
+  if (status === "failed") {
+    return <Error />;
+  }  
+
   return (
     <div className="d-flex row mt-3 mx-auto w-75">
       <div className="col-lg-4 col-6">

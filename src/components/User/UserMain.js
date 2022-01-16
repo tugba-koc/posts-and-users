@@ -1,15 +1,28 @@
-import React from "react";
-import { useResult } from "../../context/ResultContext";
+import React, {useEffect} from "react";
+import { useSelector } from "react-redux";
 import UserItem from "./UserItem/UserItem";
 import Spinner from "../../components/Spinner";
 import Error from "../Error";
+import { selectUsers, selectStatus } from "../../redux/users/usersSlice";
+import { fetchUser } from "../../redux/users/usersSlice";
+import { useDispatch } from "react-redux";
 
 function UserMain() {
-  const { users, isLoading, hasError } = useResult();
-  if (!isLoading) {
+  const users = useSelector(selectUsers);
+  const status = useSelector(selectStatus);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(status === "idle") {
+    dispatch(fetchUser());
+    }
+  }, [dispatch,status]);
+
+  if (status === "loading") {
     return <Spinner />;
   }
-  if (hasError) {
+  if (status === "failed") {
     return <Error />;
   }
   return (
