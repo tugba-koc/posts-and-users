@@ -24,10 +24,10 @@ function UserDetailMain({ user_id }) {
   const status = useSelector(selectStatus);
 
   useEffect(() => {
-    if(status === "idle") {
+    
     dispatch(fetchUserDetail(user_id));
-    }
-  }, [user_id, dispatch, status]);
+    
+  }, [user_id, dispatch]);
 
   if (status === "loading") {
     return <Spinner />;

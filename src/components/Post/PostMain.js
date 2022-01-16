@@ -9,7 +9,6 @@ import { fetchPost } from "../../redux/posts/postsSlice";
 import { useDispatch } from "react-redux";
 
 function PostMain() {
-  // const { posts, isLoading, hasError } = useResult();
   const posts = useSelector(selectPosts);
   const status = useSelector(selectStatus);
 
